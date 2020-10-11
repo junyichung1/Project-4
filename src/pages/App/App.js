@@ -5,12 +5,14 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
+import { getLeagueRecords } from '../../services/sportsdb'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      team: null
     };
   }
 
@@ -25,6 +27,14 @@ class App extends Component {
   }
   /*--- Lifecycle Methods ---*/
 
+  async componentDidMount() {
+    const records = await getLeagueRecords();
+    console.log(records.table[0])
+    this.setState({
+      team: records.table[0].goalsfor
+    })
+  }
+
   render() {
     return (
       <div>
@@ -34,7 +44,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path='/' render={() =>
-           <div>Hello World!</div> 
+           <div>{this.state.team}</div> 
           }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
