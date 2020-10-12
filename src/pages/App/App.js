@@ -5,7 +5,9 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
-import { getLeagueRecords } from '../../services/sportsdb'
+import { getLeagueRecords } from '../../services/trackers'
+
+
 
 class App extends Component {
   constructor() {
