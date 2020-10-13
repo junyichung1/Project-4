@@ -3,6 +3,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import SchedulePage from '../SchedulePage/SchedulePage';
+import BetPage from '../BetPage/BetPage';
+
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import { getLeagueRecords } from '../../utils/sports-api';
@@ -39,8 +42,8 @@ class App extends Component {
 
   async componentDidMount() {
     const bets = await betsAPI.getAll();
-    console.log(`hello`)
     this.setState({bets});
+    console.log(this.state.bets[0].amount)
   }
 
   render() {
@@ -52,7 +55,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path='/' render={() =>
-           <div>{this.state.bets}</div> 
+           <BetPage bets={this.state.bets}/> 
           }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
