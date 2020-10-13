@@ -5,8 +5,8 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
-import { getLeagueRecords } from '../../services/bets'
-
+import { getLeagueRecords } from '../../utils/sports-api';
+import * as betsAPI from '../../utils/bets-api';
 
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
-      team: null
+      bets: []
     };
   }
 
@@ -37,6 +37,12 @@ class App extends Component {
     // })
   }
 
+  async componentDidMount() {
+    const bets = await betsAPI.getAll();
+    console.log(`hello`)
+    this.setState({bets});
+  }
+
   render() {
     return (
       <div>
@@ -46,7 +52,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path='/' render={() =>
-           <div>{this.state.team}</div> 
+           <div>{this.state.bets}</div> 
           }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
