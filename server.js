@@ -8,6 +8,7 @@ const app = express();
 require('dotenv').config();
 require('./config/database');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 
@@ -18,7 +19,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/sportsdb', require('./routes/api/trackers'));
+app.use('/api/bets', require('./routes/api/bets'));
+app.use('/api/sportsApi', require('./routes/api/sportsApi'));
 
 app.use(require('./config/auth'));
 

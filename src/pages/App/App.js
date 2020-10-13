@@ -5,7 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
-import { getLeagueRecords } from '../../services/trackers'
+import { getLeagueRecords } from '../../services/bets'
 
 
 
@@ -31,10 +31,10 @@ class App extends Component {
 
   async componentDidMount() {
     const records = await getLeagueRecords();
-    console.log(records.table[0])
-    this.setState({
-      team: records.table[0].goalsfor
-    })
+    console.log(`hiiiiii`, records)
+    // this.setState({
+    //   team: records.table[0].played
+    // })
   }
 
   render() {

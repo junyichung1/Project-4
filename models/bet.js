@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const trackerSchema = new mongoose.Schema ({
-    amount: {type: String},
-    team: {type: String},
+const betSchema = new mongoose.Schema ({
+    amount: {type: Number},
+    team: {type: String, uppercase: true},
     betType: {type: String, enum: ['money line', 'Over', 'Under', 'Spread']},
     metric: {type: Number},
     odds: {type: Number},
@@ -15,4 +15,4 @@ const trackerSchema = new mongoose.Schema ({
     timestamps: true
 });
 
-module.exports = mongoose.model('Tracker', trackerSchema);
+module.exports = mongoose.model('Bet', betSchema);
