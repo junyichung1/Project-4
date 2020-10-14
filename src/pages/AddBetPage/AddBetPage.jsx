@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import betsApi from '../../utils/bets-api'
+// import betsAPI from '../../utils/bets-api'
 
 class AddBetPage extends Component {
     state = {
@@ -13,7 +13,7 @@ class AddBetPage extends Component {
             potential: '',
             outcome: 'Game Not Complete',
             earnings: '0',
-            // userID: {user}
+            userID: this.props.user._id
         }
     }
 

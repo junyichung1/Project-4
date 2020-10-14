@@ -2,15 +2,16 @@ import React from "react";
 import './BetItem.css';
 import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap'
+import Moment from 'react-moment';
 
 function BetItem(props) {
+    const dateToFormat = props.bet.createdAt
     return(
         <>
         <Table striped bordered variant="dark">
-            
-            
+             
             <tr>
-                <td>{props.bet.createdAt}</td>
+                <td><Moment format="MM/DD/YYYY">{dateToFormat}</Moment></td>
                 <td>${props.bet.amount}</td>
                 <td>{props.bet.team}</td>
                 <td>{props.bet.betType}</td>

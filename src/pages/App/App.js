@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import TeamSchedulePage from '../TeamSchedulePage/TeamSchedulePage';
 import BetPage from '../BetPage/BetPage';
 import AddBetPage from '../AddBetPage/AddBetPage';
 import EditBetPage from '../EditBetPage/EditBetPage';
@@ -26,15 +25,12 @@ class App extends Component {
   /*--- Callback Methods ---*/
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null})
+    this.setState({user: null, bets: []})
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()})
-  }
+  
 
   handleAddBet = async newBetData => {
-    console.log(`hello world`)
     const newBet = await betsAPI.create(newBetData);
     this.setState(state => ({
       bets: [...state.bets, newBet]
@@ -71,12 +67,31 @@ class App extends Component {
   //   // })
   // }
 
-  async componentDidMount() {
-    const bets = await betsAPI.getAll();
-    this.setState({bets});
-    console.log(this.state.bets[0].amount)
+  handleSignupOrLogin = async () => {
+    this.setState({user: userService.getUser()}, () => this.getUserBet()) 
   }
 
+  async componentDidMount() {
+    this.getUserBet()
+  }
+  
+  async getUserBet() {
+    const bets = await betsAPI.getAll();
+    this.setState({bets:bets});
+  }
+  
+  // async componentDidUpdate(prevProps, prevState) {
+  //   console.log(`12312312412`)
+  //   // if (!this.state.user) return
+  //   if (this.state.user !== prevState.user) {
+  //     const bets = await betsAPI.getAll();
+  //     this.setState({bets});
+  //     console.log(this.state.bets)
+  //   }
+  // }
+
+  
+  
   render() {
     return (
       <div>

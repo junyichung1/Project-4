@@ -4,7 +4,7 @@ const sportsApiCtrl = require('../../controllers/api/sportsApi');
 
 
 router.get('/schedule', sportsApiCtrl.getLeagueRecords);
-router.get('/schedule/:id', sportsApiCtrl.leagueDetail);
+router.get('/teams', sportsApiCtrl.leagueDetail);
 
 
 module.exports = router;

@@ -10,6 +10,7 @@ function BetPage(props) {
         <h1>Bets</h1>
         <div>
             <Table striped bordered variant="dark">
+              <thead>
                 <tr>
                 <th>Date</th>
                 <th>Amount</th>
@@ -23,6 +24,7 @@ function BetPage(props) {
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
+            </thead>
             </Table>
         {props.bets.map(bet => (
         <BetItem bet={bet} key={bet._id} handleDeleteBet={props.handleDeleteBet} />
