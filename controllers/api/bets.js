@@ -21,6 +21,7 @@ async function show(req, res) {
 }
 
 async function create(req, res) {
+  // req.body.user = req.user._id
   const bet = await Bet.create(req.body);
   res.status(201).json(bet);
 }

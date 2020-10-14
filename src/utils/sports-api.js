@@ -1,12 +1,26 @@
+import tokenService from './tokenService'
 const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = '/api/sportsApi';
 
-
-export function getLeagueRecords() {
-    return fetch(BASE_URL)
-        .then(res => res.json());
+export default {
+    getAll,
+    // leagueDetail
 }
 
+
+export function getAll() {
+    return fetch(BASE_URL, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }})
+    .then(res => res.json());
+  }
+
+// function leagueDetail() {
+
+// }
 
 // export function getLeagueRecords() {
 //     console.log(`${API_KEY}`)

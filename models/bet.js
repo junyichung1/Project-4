@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const betSchema = new mongoose.Schema ({
     amount: {type: Number},
     team: {type: String, uppercase: true},
-    betType: {type: String, enum: ['money line', 'Over', 'Under', 'Spread']},
+    betType: {type: String, enum: ['Moneyline', 'Over', 'Under', 'Spread']},
     metric: {type: Number},
     odds: {type: Number},
     potential: {type: Number},
-    outcome: {type: String, enum: ['Win', 'Loss']},
+    outcome: {type: String, enum: ['Win', 'Loss', 'Game Not Complete']},
     earnings: {type: Number},
     userID: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    eventID: {type: String}
+    // eventID: {type: String}
 }, {
     timestamps: true
 });
