@@ -10,8 +10,24 @@ const leagueLookup = {
 module.exports = {
     getLeagueRecords,
     leagueDetail,
+    getTeamSchedule
 }
+// axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnext.php?id=${req.params.id}`)
 
+
+function getTeamSchedule(req, res) {
+    // console.log(`test 2`, req.params.id)
+    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnext.php?id=${req.params.id}`)
+    .then(function (response) {
+    // handle success
+        console.log(response.data);
+        res.json(response.data)
+    })
+    .catch(function (error) {
+    // handle error
+        console.log(error);
+    })
+}
 function leagueDetail(req, res) {
     axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/lookup_all_teams.php?id=4391`)
     .then(function (response) {

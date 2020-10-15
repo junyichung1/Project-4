@@ -1,19 +1,15 @@
-// import React, {useState, useEffect } from "react";
-// import sportsApi from '../../utils/sports-api'
+import React, {useState, useEffect } from "react";
+import sportsApi from '../../utils/sports-api'
 
-// const TeamSchedulePage = props => {
-//     const [schedules, setSchedules] = useState([])
-//     useEffect(() => {
-//         sportsApi.getAll().then(res => setSchedules(res))
-//     }, [])
-//     console.log(schedules)
-//     return (
+const TeamSchedulePage = props => {
+    console.log(props.teamSchedule)
+    return (
         
-//         <div>
-            
-//         </div>
+        <div>
+            {props.teamSchedule}
+        </div>
         
-//     )
-// }
+    )
+}
 
-// export default TeamSchedulePage;
+export default TeamSchedulePage;

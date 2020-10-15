@@ -11,9 +11,9 @@ module.exports = {
   };
 
 async function index(req, res) {
-  console.log(req.user)
+  // console.log(req.user)
   const bets = await Bet.find({userID: req.user._id});
-  console.log(bets)
+  // console.log(bets)
   res.status(200).json(bets)
 }
 
@@ -24,7 +24,7 @@ async function show(req, res) {
 
 async function create(req, res) {
   req.body.userID = req.user._id
-  console.log(`222222222`, req.user._id)
+  // console.log(`222222222`, req.user._id)
   const bet = await Bet.create(req.body);
   res.status(201).json(bet);
 }

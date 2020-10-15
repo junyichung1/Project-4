@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 // import {Switch, Route} from 'react-router-dom';
 import sportsApi from '../../utils/sports-api';
-// import TeamItem from '../../components/TeamItem'
+import TeamItem from '../../components/TeamItem/TeamItem'
 
 // function TeamsPage() {
 //     const [teams, setTeams] = useState([])
@@ -34,24 +34,34 @@ class TeamsPage extends Component {
     }
 
     async componentDidMount() {
-            console.log(`hello World`)
             const teams = await sportsApi.getTeams();
-            this.setState({teams})
-            console.log(`this is sports`, teams)
+            this.setState({teams: teams.teams})
+            // console.log(`this is sports`, teams[0])
         }
-        
+      
 
-        render() {
-            
-            return (
-                <>
-            
-                <h1>All Teams</h1>     
-                                
-            </>
-        )
-    }
-                
+render() {
+const sportsTeams = this.state.teams.map(team => {
+    // console.log(team)
+    return <div>
+            <TeamItem 
+            team={team}
+            key={team.IDteam}
+            getTeamSchedule={this.props.getTeamSchedule}
+            />
+        </div> 
+})
+
+    return (
+        <>
+
+        <h1>All Teams</h1>     
+    <div>{sportsTeams}</div>             
+        </>
+)
+
+}
+    
 }
 
-                        export default TeamsPage;
+export default TeamsPage;

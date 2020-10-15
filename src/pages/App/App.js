@@ -11,14 +11,17 @@ import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import { getLeagueRecords } from '../../utils/sports-api';
 import * as betsAPI from '../../utils/bets-api';
+import * as sportsAPI from '../../utils/sports-api';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import TeamSchedulePage from '../TeamSchedulePage/TeamSchedulePage';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
-      bets: []
+      bets: [],
+      teamSchedule: []
     };
   }
 
@@ -57,6 +60,8 @@ class App extends Component {
       () => this.props.history.push('/')
     );
    }
+
+
   /*--- Lifecycle Methods ---*/
 
   // async componentDidMount() {
@@ -80,17 +85,13 @@ class App extends Component {
     this.setState({bets:bets});
   }
   
-  // async componentDidUpdate(prevProps, prevState) {
-  //   console.log(`12312312412`)
-  //   // if (!this.state.user) return
-  //   if (this.state.user !== prevState.user) {
-  //     const bets = await betsAPI.getAll();
-  //     this.setState({bets});
-  //     console.log(this.state.bets)
-  //   }
-  // }
+  async getTeamSchedule(id) {
+    console.log(`tem schedule`, teamSchedule)
+    const teamSchedule = await sportsAPI.getTeamSchedule(id);
+    this.setState({teamSchedule})
+  }
 
-  
+
   
   render() {
     return (
@@ -108,7 +109,15 @@ class App extends Component {
            /> 
           }/>
            <Route exact path='/teams' render={() => 
-          <TeamsPage />
+          <TeamsPage
+          getTeamSchedule={this.getTeamSchedule}
+          />
+           }/>
+           <Route exact path='/schedule/:id' render={() => 
+          <TeamSchedulePage 
+          teamSchedule={this.state.teamSchedule}
+          
+          />
            }/>
           <Route exact path='/add' render={() =>
            <AddBetPage 
