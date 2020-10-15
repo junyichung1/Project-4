@@ -6,7 +6,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import BetPage from '../BetPage/BetPage';
 import AddBetPage from '../AddBetPage/AddBetPage';
 import EditBetPage from '../EditBetPage/EditBetPage';
-
+import TeamsPage from '../TeamsPage/TeamsPage'
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import { getLeagueRecords } from '../../utils/sports-api';
@@ -107,9 +107,9 @@ class App extends Component {
            handleDeleteBet={this.handleDeleteBet}
            /> 
           }/>
-           {/* <Route exact path='/schedule' render={() =>  */}
-           {/* <TeamSchedulePage /> */}
-           {/* }/>  */}
+           <Route exact path='/teams' render={() => 
+          <TeamsPage />
+           }/>
           <Route exact path='/add' render={() =>
            <AddBetPage 
            handleAddBet={this.handleAddBet}

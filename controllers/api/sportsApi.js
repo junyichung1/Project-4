@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const API_KEY = process.env.REACT_APP_API_KEY;
 const axios = require('axios');
 const leagueLookup = {

@@ -1,37 +1,57 @@
-import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import React, { Component, useState, useEffect } from 'react';
+// import {Switch, Route} from 'react-router-dom';
 import sportsApi from '../../utils/sports-api';
-import TeamItem from '../../components/TeamItem'
+// import TeamItem from '../../components/TeamItem'
+
+// function TeamsPage() {
+//     const [teams, setTeams] = useState([])
+    
+    
+//     useEffect(() => {
+//         sportsApi.getTeams().then(res => setTeams(res));
+//     }, [])
+    
+//     console.log(teams)
+    
+
+//     return (
+//         <div>
+//             <h1>All Teams</h1>
+//             <h2>{}</h2>
+//         </div>
+//     )
+// }
+
+
 
 class TeamsPage extends Component {
     constructor() {
-      super();
-      this.state = {
+    super();
+    this.state = {
         teams: [],
 
-      };
+        };
     }
 
     async componentDidMount() {
-        console.log(`hello World`)
-        const sports = await sportsApi.getTeams();
-        console.log(`this is sports`, sports)
-        this.setState({sports})
-    }
+            console.log(`hello World`)
+            const teams = await sportsApi.getTeams();
+            this.setState({teams})
+            console.log(`this is sports`, teams)
+        }
+        
 
-      render() {
-        //   this.state.
-          return (
-            <>
-              
-                  <Route exact path='/teams' render={() =>
-                  <TeamItem 
-                  />
-                  }/>
-
-               
-
+        render() {
+            
+            return (
+                <>
+            
+                <h1>All Teams</h1>     
+                                
             </>
-              )
+        )
     }
+                
 }
+
+                        export default TeamsPage;
