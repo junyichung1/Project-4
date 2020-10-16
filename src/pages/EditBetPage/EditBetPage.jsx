@@ -10,10 +10,18 @@ class EditBetPage extends Component {
 
  formRef = React.createRef();
 
+//  handleSubmit = e => {
+//    e.preventDefault();
+//    this.props.handleUpdateBet(this.state.formData);
+//  };
+
  handleSubmit = e => {
-   e.preventDefault();
-   this.props.handleUpdateBet(this.state.formData);
- };
+  e.preventDefault();
+  let potential = this.calculatePotential()
+  let earnings = this.calculateEarnings(potential)
+  const newState = {...this.state.formData, potential, earnings}
+  this.props.handleUpdateBet(newState)
+};
 
  handleChange = e => {
    const formData = {...this.state.formData, [e.target.name]: e.target.value};
@@ -22,6 +30,31 @@ class EditBetPage extends Component {
      invalidForm: !this.formRef.current.checkValidity()
    });
  };
+
+ calculateEarnings(potential) {
+  let outcome = this.state.formData.outcome;
+  let amount = this.state.formData.amount;
+  // let potential = this.state.formData.potential;
+  if (outcome === "Win") {
+    console.log(potential)
+    return potential;
+  } else if (outcome === "Loss") {
+    return amount;
+  } else {
+    return 0;
+  }
+}
+
+ calculatePotential() {
+  let odds = this.state.formData.odds;
+  let amount = this.state.formData.amount;
+  if (odds > 0) {
+    return ((odds/100) * amount).toFixed(2) 
+  } else {
+    return ((-100/odds) * amount).toFixed(2)
+  }
+}  
+
  render() {
     return (
       <>
@@ -85,6 +118,7 @@ class EditBetPage extends Component {
               name="potential"
               value={this.state.formData.potential}
               onChange={this.handleChange}
+              disabled
             />
           </div>
           <div className="form-group">
@@ -107,6 +141,8 @@ class EditBetPage extends Component {
               name="earnings"
               value={this.state.formData.earnings}
               onChange={this.handleChange}
+              disabled
+              placeholder={this.state.formData.earnings}
             />
           </div>
           <button

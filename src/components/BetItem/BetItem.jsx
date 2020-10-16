@@ -5,6 +5,10 @@ import { Table } from 'react-bootstrap'
 import Moment from 'react-moment';
 
 function BetItem(props) {
+    function calculateEarning() {
+
+    }
+
     const dateToFormat = props.bet.createdAt
     return(
         <>
@@ -17,14 +21,22 @@ function BetItem(props) {
                 <td>{props.bet.betType}</td>
                 <td>{props.bet.metric}</td>
                 <td>{props.bet.odds}</td>
-                <td>{props.bet.potential}</td>
+                <td>${props.bet.potential}</td>
+                {/* <td>${props.bet.odds > 1 ? ((props.bet.odds/100) * props.bet.amount).toFixed(2) : ((-100/props.bet.odds) * props.bet.amount).toFixed(2)}</td> */}
                 <td>{props.bet.outcome}</td>
-                <td>{props.bet.earnings}</td>
+                <td>${props.bet.earnings}</td>
+                {/* <td>${(() => {
+        switch (props.bet.outcome) {
+          case "Win":   return props.bet.potential;
+          case "Lose": return - props.bet.amount;
+          default:      return 25;
+        }
+      })()}</td> */}
                 <td><Link to={{
                 pathname: '/edit',
                 state: {bet: props.bet}
                 }}><button type="submit">Edit</button></Link></td>
-                <td><button type="submit" onClick={() => props.handleDeleteBet(props.bet._id)}>X</button></td>
+                <td><button type="submit" onClick={() => props.handleDeleteBet(props.bet._id)} style={{ color: "red"}}>X</button></td>
                 
             </tr>
     

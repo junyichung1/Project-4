@@ -1,5 +1,4 @@
 import React, { Component, useState, useEffect } from 'react';
-// import {Switch, Route} from 'react-router-dom';
 import sportsApi from '../../utils/sports-api';
 import TeamItem from '../../components/TeamItem/TeamItem'
 

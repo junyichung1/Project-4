@@ -20,7 +20,7 @@ function getTeamSchedule(req, res) {
     axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnext.php?id=${req.params.id}`)
     .then(function (response) {
     // handle success
-        console.log(response.data);
+        // console.log(response.data);
         res.json(response.data)
     })
     .catch(function (error) {
@@ -32,7 +32,7 @@ function leagueDetail(req, res) {
     axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/lookup_all_teams.php?id=4391`)
     .then(function (response) {
     // handle success
-        console.log(response);
+        // console.log(response);
         res.json(response.data)
     })
     .catch(function (error) {
@@ -43,7 +43,7 @@ function leagueDetail(req, res) {
 
 function getLeagueRecords(req, res) {
     console.log(`${API_KEY}`)
-    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/lookuptable.php?l=${leagueDetail[req.params.id]}&s=2020`)
+    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsseason.php?id=4391&s=2020`)
     .then(function (response) {
     // handle success
         console.log(response);

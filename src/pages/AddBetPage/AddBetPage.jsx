@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import betsAPI from '../../utils/bets-api'
 
 class AddBetPage extends Component {
     state = {
@@ -12,7 +11,7 @@ class AddBetPage extends Component {
             odds: '',
             potential: '',
             outcome: 'Game Not Complete',
-            earnings: '0',
+            earnings: 0,
             userID: this.props.user._id
         }
     }
@@ -22,17 +21,43 @@ formRef = React.createRef();
 
 handleSubmit = e => {
     e.preventDefault();
-    console.log(`Hello world 2`)
-    this.props.handleAddBet(this.state.formData)
+    let potential = this.calculatePotential()
+    let earnings = this.calculateEarnings(potential)
+    const newState = {...this.state.formData, potential, earnings}
+    this.props.handleAddBet(newState)
 };
 
 handleChange = e => {
-    const formData = {...this.state.formData, [e.target.name]: e.target.value};
+  const formData = {...this.state.formData, [e.target.name]: e.target.value};
     this.setState({
       formData,
       invalidForm: !this.formRef.current.checkValidity()
     });
   };
+
+calculateEarnings(potential) {
+  let outcome = this.state.formData.outcome;
+  let amount = this.state.formData.amount;
+  // let potential = this.state.formData.potential;
+  if (outcome === "Win") {
+    console.log(potential)
+    return potential;
+  } else if (outcome === "Loss") {
+    return amount;
+  } else {
+    return 0;
+  }
+}
+
+calculatePotential() {
+  let odds = this.state.formData.odds;
+  let amount = this.state.formData.amount;
+  if (odds > 0) {
+    return ((odds/100) * amount).toFixed(2) 
+  } else {
+    return ((-100/odds) * amount).toFixed(2)
+  }
+}  
 
 render() {
     return (
@@ -96,8 +121,10 @@ render() {
               className="form-control"
               name="potential"
               value={this.state.formData.potential}
-              onChange={this.handleChange}
-            />
+              // onChange={this.handleChange}
+              disabled
+              placeholder="Auto" 
+             />
           </div>
           <div className="form-group">
             <label>Outcome</label>
@@ -118,7 +145,8 @@ render() {
               className="form-control"
               name="earnings"
               value={this.state.formData.earnings}
-              onChange={this.handleChange}
+              // onChange={this.handleChange}
+              disabled
             />
           </div>
           <button

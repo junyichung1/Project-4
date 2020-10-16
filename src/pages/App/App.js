@@ -7,6 +7,7 @@ import BetPage from '../BetPage/BetPage';
 import AddBetPage from '../AddBetPage/AddBetPage';
 import EditBetPage from '../EditBetPage/EditBetPage';
 import TeamsPage from '../TeamsPage/TeamsPage'
+import SchedulePage from '../SchedulePage/SchedulePage'
 import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import { getLeagueRecords } from '../../utils/sports-api';
@@ -86,7 +87,6 @@ class App extends Component {
   }
   
   async getTeamSchedule(id) {
-    console.log(`tem schedule`, teamSchedule)
     const teamSchedule = await sportsAPI.getTeamSchedule(id);
     this.setState({teamSchedule})
   }
@@ -113,9 +113,12 @@ class App extends Component {
           getTeamSchedule={this.getTeamSchedule}
           />
            }/>
+           <Route exact path='/schedule' render={() => 
+          <SchedulePage
+          />
+           }/>
            <Route exact path='/schedule/:id' render={() => 
           <TeamSchedulePage 
-          teamSchedule={this.state.teamSchedule}
           
           />
            }/>
