@@ -40,7 +40,7 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <Link to='/signup' className='NavBar-link'>SIGN UP</Link> */}
         <Navbar bg="dark" variant="dark">
-    <Navbar.Brand><img src="bet-tracker-logo.png" height='50px'/></Navbar.Brand>
+    <Navbar.Brand><img src={require("../images/bet-tracker-logo.png")} height='50px'/></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="login">LOG IN</Nav.Link>
       <Nav.Link href="signup">SIGN UP</Nav.Link>

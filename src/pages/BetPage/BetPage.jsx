@@ -51,8 +51,10 @@ function BetPage(props) {
         
       </div>
       :
-      <div>
-        No user logged in yet
+      <div style={{display: "grid", justifyItems: "center"}}>
+        <h1 className="title">LOG IN TO TRACK YOUR BETS</h1>
+        <img src=
+        {require("../../components/images/nfl-logo.png")} style={{width: "30%"}}></img>
       </div>;
   
     return (
