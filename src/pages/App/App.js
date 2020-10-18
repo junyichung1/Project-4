@@ -68,20 +68,24 @@ class App extends Component {
 
   /*--- Lifecycle Methods ---*/
 
-  // async componentDidMount() {
-  //   const records = await getLeagueRecords();
-  //   console.log(`hiiiiii`, records)
-  //   // this.setState({
-  //   //   team: records.table[0].played
-  //   // })
-  // }
 
   handleSignupOrLogin = async () => {
     this.setState({user: userService.getUser()}, () => this.getUserBet()) 
   }
+  
 
   async componentDidMount() {
     this.getUserBet()
+  }
+
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevState.user !== this.state.user) {
+      const bets = await betsAPI.getAll();
+      this.setState({
+        bets
+        });
+    }
   }
   
   async getUserBet() {

@@ -1,7 +1,7 @@
 import React from "react";
 import './BetItem.css';
 import { Link } from 'react-router-dom';
-import { Table } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 import Moment from 'react-moment';
 
 function BetItem(props) {
@@ -26,11 +26,11 @@ function BetItem(props) {
                 <td>{props.bet.outcome}</td>
                 <td>${props.bet.earnings}</td>
 
-                <td><Link to={{
-                pathname: '/edit',
-                state: {bet: props.bet}
-                }}><button type="submit">Edit</button></Link></td>
-                <td><button type="submit" onClick={() => props.handleDeleteBet(props.bet._id)} style={{ color: "red"}}>X</button></td>
+                <td><Button as={Link} variant="warning" to={{
+                    pathname: '/edit',
+                    state: {bet: props.bet}
+                    }} size="sm" type="submit">Edit</Button></td>
+                <td><Button type="submit" variant="danger" size="sm" onClick={() => props.handleDeleteBet(props.bet._id)}>X</Button></td>
                 
             </tr>
     
