@@ -6,7 +6,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 const NavBar = (props) => {
     let nav = props.user ?
       <>
-        <Navbar bg="dark" variant="dark" expand="md">
+        <Navbar bg="dark" variant="dark" expand="md" style={{display: "flex", justifyContent: "space-between"}}>
     <Navbar.Brand><img src="bet-tracker-logo.png" height='50px'/></Navbar.Brand>
     <Navbar /><Nav>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

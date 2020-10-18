@@ -15,11 +15,13 @@ const TeamSchedulePage = props => {
     return (
         teamSchedule && 
         
-        <div style={{display: "flex", width: "100%", flexDirection: "row-reverse", flexWrap: "wrap", justifyContent: "center"}}>
-            
+        <div>
+            <h1 className="title">Previous Results</h1>
+            <div style={{display: "flex", width: "100%", flexDirection: "row-reverse", flexWrap: "wrap", justifyContent: "center"}}>
             {teamSchedule.results.map(result => (
                 // <div>{result.strFilename}</div>
                 <>
+                
                 <Card style={{width: "15rem", margin: '5px', boxShadow: '1px 2px 5px red'}}>
             <Card.Body style={{fontWeight: "bold", fontSize: "24px", textAlign: "center"}}>{result.dateEvent}</Card.Body>
     <Card.Img variant="top" src={result.strThumb} />
@@ -37,6 +39,7 @@ const TeamSchedulePage = props => {
   </>
                 )
                 )}
+                </div>
         </div>
         
     )
