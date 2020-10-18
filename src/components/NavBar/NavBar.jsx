@@ -13,9 +13,9 @@ const NavBar = (props) => {
     <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href="/">BETS</Nav.Link>
-      <Nav.Link href="schedule">SCHEDULES</Nav.Link>
-      <Nav.Link href="teams">TEAMS</Nav.Link>
-      <Nav.Link href="add">ADD BETS</Nav.Link>
+      <Nav.Link href="/schedule">SCHEDULES</Nav.Link>
+      <Nav.Link href="/teams">TEAMS</Nav.Link>
+      <Nav.Link href="/add">ADD BETS</Nav.Link>
       <Nav.Link href="/" onClick={props.handleLogout}>LOGOUT</Nav.Link>
     </Nav>
     </Navbar.Collapse>

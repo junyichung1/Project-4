@@ -40,16 +40,5 @@ render() {
     )
 }
 
-    /* return (
-        <>
-
-        <h1>NFL Teams</h1>     
-    <div>{sportsTeams}</div>             
-        </>
-)
-
 }
-    
-} */}
-
 export default TeamsPage;

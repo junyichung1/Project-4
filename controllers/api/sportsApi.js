@@ -17,7 +17,7 @@ module.exports = {
 
 function getTeamSchedule(req, res) {
     // console.log(`test 2`, req.params.id)
-    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnext.php?id=${req.params.id}`)
+    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventslast.php?id=${req.params.id}`)
     .then(function (response) {
     // handle success
         // console.log(response.data);
