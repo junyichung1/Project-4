@@ -22,7 +22,7 @@ const TeamSchedulePage = props => {
                 // <div>{result.strFilename}</div>
                 <>
                 
-                <Card style={{width: "15rem", margin: '5px', boxShadow: '1px 2px 5px red'}}>
+                <Card style={{width: "25rem", margin: '5px', boxShadow: '1px 2px 5px red'}}>
             <Card.Body style={{fontWeight: "bold", fontSize: "24px", textAlign: "center"}}>{result.dateEvent}</Card.Body>
     <Card.Img variant="top" src={result.strThumb} />
     <Card.Body style={{display: "flex", justifyContent: "space-around", fontWeight: "bold"}}>

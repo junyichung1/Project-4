@@ -44,7 +44,7 @@ function leagueDetail(req, res) {
 
 function getLeagueRecords(req, res) {
     console.log(`${API_KEY}`)
-    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsseason.php?id=4391&s=2020`)
+    axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/eventsnextleague.php?id=4391`)
     .then(function (response) {
     // handle success
         console.log(response);

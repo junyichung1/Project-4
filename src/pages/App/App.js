@@ -30,7 +30,7 @@ class App extends Component {
   /*--- Callback Methods ---*/
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null, bets: []})
+    this.setState({user: null, bets: [], teamSchedule: []})
   }
 
   formatNum(x) {

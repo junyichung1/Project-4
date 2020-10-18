@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './EditBetPage.css'
 
 class EditBetPage extends Component {
  state = {
@@ -58,8 +59,8 @@ class EditBetPage extends Component {
  render() {
     return (
       <>
-        <h1>Update Bet</h1>
-        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+        <h1 className="title">Update Bet</h1>
+        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit} style={{marginBottom: "30px"}}>
           <div className="form-group">
             <label>Amount</label>
             <input
@@ -149,6 +150,7 @@ class EditBetPage extends Component {
             type="submit"
             className="btn"
             disabled={this.state.invalidForm}
+            style={{color: "white", border: "solid white"}}
           >
             SAVE BET
           </button>

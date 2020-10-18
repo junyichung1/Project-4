@@ -63,8 +63,8 @@ calculatePotential() {
 render() {
     return (
       <Container>
-        <h1>Add Bet</h1>
-        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+        <h1 className="title">Add Bet</h1>
+        <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit} style={{marginBottom: "30px"}}>
           <div className="form-group">
             <label>Amount</label>
             <input
@@ -154,6 +154,7 @@ render() {
             type="submit"
             className="btn"
             disabled={this.state.invalidForm}
+            style={{color: "white", border: "solid white"}}
           >
             ADD BET
           </button>
