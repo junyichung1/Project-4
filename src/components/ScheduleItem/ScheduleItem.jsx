@@ -1,13 +1,22 @@
 import React from "react";
 import './ScheduleItem.css';
+import { Card } from 'react-bootstrap';
 
-function TeamItem(props) {
+function ScheduleItem(props) {
 // console.log(props.team)
     return (
         <>
-        <div>{props.schedule.strFilename}</div>
+<Card style={{width: '15rem', margin: '5px', boxShadow: '1px 2px 5px lightslategray'}}>
+  <Card.Img variant="top" src={props.schedule.strThumb} />
+  <Card.Body>
+    <Card.Title>{props.schedule.strFilename}</Card.Title>
+    <Card.Text>
+      {props.schedule.strDescriptionEN}
+    </Card.Text>
+  </Card.Body>
+</Card>
         </>
     )
 }
 
-export default TeamItem;
+export default ScheduleItem;

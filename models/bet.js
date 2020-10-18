@@ -10,7 +10,6 @@ const betSchema = new mongoose.Schema ({
     outcome: {type: String, enum: ['Win', 'Loss', 'Game Not Complete']},
     earnings: {type: Number},
     userID: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    // eventID: {type: String}
 }, {
     timestamps: true
 });

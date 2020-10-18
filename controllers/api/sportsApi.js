@@ -28,6 +28,7 @@ function getTeamSchedule(req, res) {
         console.log(error);
     })
 }
+
 function leagueDetail(req, res) {
     axios.get(`https://www.thesportsdb.com/api/v1/json/${API_KEY}/lookup_all_teams.php?id=4391`)
     .then(function (response) {

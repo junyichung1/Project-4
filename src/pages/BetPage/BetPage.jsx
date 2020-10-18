@@ -1,14 +1,20 @@
 import React from "react";
 import "./BetPage.css";
 import BetItem from "../../components/BetItem/BetItem";
+import TotalEarnings from "../../components/TotalEarnings/TotalEarnings";
 import { Table } from 'react-bootstrap'
 
 function BetPage(props) {
+  console.log(props.bets)
+  let total = 0
+  function calculateTotal(total, num) {
+    return total += num;
+  }
     let bets = props.user ?
       <div>
           <>
-        <h1>Bets</h1>
-        <div>
+        <h1 className='title'>Bets</h1>
+        
             <Table striped bordered variant="dark">
               <thead>
                 <tr>
@@ -27,9 +33,20 @@ function BetPage(props) {
             </thead>
             </Table>
         {props.bets.map(bet => (
+          
         <BetItem bet={bet} key={bet._id} handleDeleteBet={props.handleDeleteBet} />
         ))}
-        </div>
+
+        <TotalEarnings bets={props.bets}
+        formatNum={props.formatNum}
+        />
+
+        
+          {/* {props.bets.map(bet => (
+            // total += {bet.earnings}
+
+          ))} */}
+        
         </>
         
       </div>

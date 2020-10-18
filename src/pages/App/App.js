@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+import { Container } from 'react-bootstrap'
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import BetPage from '../BetPage/BetPage';
@@ -32,7 +33,9 @@ class App extends Component {
     this.setState({user: null, bets: []})
   }
 
-  
+  formatNum(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   handleAddBet = async newBetData => {
     const newBet = await betsAPI.create(newBetData);
@@ -95,17 +98,19 @@ class App extends Component {
   
   render() {
     return (
-      <div>
-        <NavBar 
-        user={this.state.user} 
-        handleLogout={this.handleLogout}
-        />
+      <>
+      <NavBar 
+      user={this.state.user} 
+      handleLogout={this.handleLogout}
+      />
         <Switch>
+          <Container>
           <Route exact path='/' render={() =>
            <BetPage 
            bets={this.state.bets}
            user={this.state.user}
            handleDeleteBet={this.handleDeleteBet}
+           formatNum={this.formatNum}
            /> 
           }/>
            <Route exact path='/teams' render={() => 
@@ -149,8 +154,9 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+      </Container>
         </Switch>
-      </div>
+        </>
     );
   }
 }

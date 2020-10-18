@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from 'react-bootstrap';
 
 class AddBetPage extends Component {
     state = {
@@ -43,7 +44,7 @@ calculateEarnings(potential) {
     console.log(potential)
     return potential;
   } else if (outcome === "Loss") {
-    return amount;
+    return -1 * amount;
   } else {
     return 0;
   }
@@ -61,7 +62,7 @@ calculatePotential() {
 
 render() {
     return (
-      <>
+      <Container>
         <h1>Add Bet</h1>
         <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -157,7 +158,7 @@ render() {
             ADD BET
           </button>
         </form>
-      </>
+      </Container>
     );
   }
  }

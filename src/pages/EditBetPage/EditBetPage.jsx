@@ -39,7 +39,7 @@ class EditBetPage extends Component {
     console.log(potential)
     return potential;
   } else if (outcome === "Loss") {
-    return amount;
+    return -1 * amount;
   } else {
     return 0;
   }

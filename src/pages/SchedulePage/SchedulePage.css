@@ -1,0 +1,11 @@
+.schedulePageBox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    white: color;
+}

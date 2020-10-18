@@ -1,26 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import sportsApi from '../../utils/sports-api';
 import TeamItem from '../../components/TeamItem/TeamItem'
-
-// function TeamsPage() {
-//     const [teams, setTeams] = useState([])
-    
-    
-//     useEffect(() => {
-//         sportsApi.getTeams().then(res => setTeams(res));
-//     }, [])
-    
-//     console.log(teams)
-    
-
-//     return (
-//         <div>
-//             <h1>All Teams</h1>
-//             <h2>{}</h2>
-//         </div>
-//     )
-// }
-
+import { CardColumns } from 'react-bootstrap';
+import './TeamsPage.css'
 
 
 class TeamsPage extends Component {
@@ -40,27 +22,34 @@ class TeamsPage extends Component {
       
 
 render() {
-const sportsTeams = this.state.teams.map(team => {
+    // const sportsTeams =
     // console.log(team)
-    return <div>
+    return (
+    <div className="page">
+    <h1 className="title">NFL Teams</h1> 
+    <CardColumns>
+             {this.state.teams.map(team => (
             <TeamItem 
             team={team}
             key={team.IDteam}
             getTeamSchedule={this.props.getTeamSchedule}
             />
-        </div> 
-})
+            ))}
+            </CardColumns> 
+             </div>
+    )
+}
 
-    return (
+    /* return (
         <>
 
-        <h1>All Teams</h1>     
+        <h1>NFL Teams</h1>     
     <div>{sportsTeams}</div>             
         </>
 )
 
 }
     
-}
+} */}
 
 export default TeamsPage;

@@ -25,13 +25,7 @@ function BetItem(props) {
                 {/* <td>${props.bet.odds > 1 ? ((props.bet.odds/100) * props.bet.amount).toFixed(2) : ((-100/props.bet.odds) * props.bet.amount).toFixed(2)}</td> */}
                 <td>{props.bet.outcome}</td>
                 <td>${props.bet.earnings}</td>
-                {/* <td>${(() => {
-        switch (props.bet.outcome) {
-          case "Win":   return props.bet.potential;
-          case "Lose": return - props.bet.amount;
-          default:      return 25;
-        }
-      })()}</td> */}
+
                 <td><Link to={{
                 pathname: '/edit',
                 state: {bet: props.bet}
@@ -41,6 +35,7 @@ function BetItem(props) {
             </tr>
     
         </Table>
+       
         </>
     )
 }
