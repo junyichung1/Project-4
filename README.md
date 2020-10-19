@@ -7,11 +7,16 @@ Upload your bets you made with the dollar amount, what type of bet, and what the
 
 You can also use this app to help you with your bwet making decision.  You will have access to previous games by team and the following week's full NFL schedule.
 
+Screenshots of the application:
+https://imgur.com/cR1xuyy
+https://imgur.com/499yuZJ
+https://imgur.com/7yQXXzW
+https://imgur.com/hx5aBc1
 
 Below are the tool I used to help build the project.
 
-Trello: 
-Site: 
+Trello: https://trello.com/b/TbkYKl7h/react-bets-tracker
+Site: https://serene-anchorage-05284.herokuapp.com/
 
 
 
