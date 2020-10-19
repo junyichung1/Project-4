@@ -2,10 +2,10 @@
  # Bet-Tracker
 
 
-Upload your bets you made with the dollar amount, what type of bet, and what the odds were. We will do the rest and kleep track of how you are doing.
+Upload your bets you made with the dollar amount, what type of bet, and what the odds were. We will do the rest and keep track of how you are doing.
 
 
-You can also use this app to help you with your bwet making decision.  You will have access to previous games by team and the following week's full NFL schedule.
+You can also use this app to help you with your bet making decision.  You will have access to previous games by team and the following week's full NFL schedule.
 
 ## Screenshots of the application:
 <a href="https://imgur.com/cR1xuyy"><img src="https://i.imgur.com/cR1xuyy.png" title="source: imgur.com" /></a>
@@ -27,6 +27,7 @@ You can also use this app to help you with your bwet making decision.  You will 
 - Express
 
 (Please see trello board for wireframes and ERD)
+
 Trello: https://trello.com/b/TbkYKl7h/react-bets-tracker
 
 Site: https://serene-anchorage-05284.herokuapp.com/
