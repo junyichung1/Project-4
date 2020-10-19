@@ -34,7 +34,9 @@ function BetPage(props) {
             </Table>
         {props.bets.map(bet => (
           
-        <BetItem bet={bet} key={bet._id} handleDeleteBet={props.handleDeleteBet} />
+        <BetItem bet={bet} key={bet._id} handleDeleteBet={props.handleDeleteBet} 
+        formatNum={props.formatNum}
+        />
         ))}
 
         <TotalEarnings bets={props.bets}

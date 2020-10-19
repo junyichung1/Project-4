@@ -16,7 +16,7 @@ function BetItem(props) {
              
             <tr>
                 <td><Moment format="MM/DD/YYYY">{dateToFormat}</Moment></td>
-                <td>${props.bet.amount}</td>
+                <td>$ {props.bet.amount}</td>
                 <td>{props.bet.team}</td>
                 <td>{props.bet.betType}</td>
                 <td>{props.bet.metric}</td>
