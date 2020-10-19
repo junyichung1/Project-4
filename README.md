@@ -7,19 +7,37 @@ Upload your bets you made with the dollar amount, what type of bet, and what the
 
 You can also use this app to help you with your bwet making decision.  You will have access to previous games by team and the following week's full NFL schedule.
 
-Screenshots of the application:
-https://imgur.com/cR1xuyy
-https://imgur.com/499yuZJ
-https://imgur.com/7yQXXzW
+## Screenshots of the application:
+<a href="https://imgur.com/cR1xuyy"><img src="https://i.imgur.com/cR1xuyy.png" title="source: imgur.com" /></a>
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/hx5aBc1"  ><a href="//imgur.com/a/hx5aBc1">Screen Shot 2020-10-18 at 11.02.49 PM</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<a href="https://imgur.com/499yuZJ"><img src="https://i.imgur.com/499yuZJ.png" title="source: imgur.com" /></a>
 
-Below are the tool I used to help build the project.
+<a href="https://imgur.com/7yQXXzW"><img src="https://i.imgur.com/7yQXXzW.png" title="source: imgur.com" /></a>
 
+<a href="https://imgur.com/hx5aBc1"><img src="https://i.imgur.com/hx5aBc1.png" title="source: imgur.com" /></a>
+
+### Below are the tools/technologies I used to help build the project.
+
+- JavaScript
+- CSS
+- Mongoose
+- Node js
+- React
+- Bootstrap
+- Express
+
+(Please see trello board for wireframes and ERD)
 Trello: https://trello.com/b/TbkYKl7h/react-bets-tracker
+
 Site: https://serene-anchorage-05284.herokuapp.com/
 
 
+### IceBox Items
+
+- Be able to implement all sports into the Application
+- Customize looks of site based on user's favorite team
+- Add current standings for the sports teams
+- Be able to add the bet type for parlays
 
 
 
