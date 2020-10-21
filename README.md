@@ -30,7 +30,7 @@ You can also use this app to help you with your bet making decision.  You will h
 
 Trello: https://trello.com/b/TbkYKl7h/react-bets-tracker
 
-Site: https://serene-anchorage-05284.herokuapp.com/
+Site: https://sports-bet-tracker.herokuapp.com/
 
 
 ### IceBox Items
